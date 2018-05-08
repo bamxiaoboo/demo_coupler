@@ -1,0 +1,3 @@
+mpiexec_public2.c-coupler.org: cannot connect to local mpd (/tmp/mpd2.console_sunchao); possible causes:
+  1. no mpd is running on this host
+  2. an mpd is running but was started without a "console" (-n option)

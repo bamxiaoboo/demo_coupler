@@ -1,0 +1,1 @@
+mpiifort -o gamil gamil.f90 -L/opt/netCDF-intel13-without-hdf5/lib -lnetcdff -lnetcdf -I/opt/netCDF-intel13-without-hdf5/include -g -traceback -check all -heap-arrays -fp-stack-check

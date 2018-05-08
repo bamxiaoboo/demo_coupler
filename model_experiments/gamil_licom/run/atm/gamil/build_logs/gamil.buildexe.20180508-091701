@@ -1,0 +1,24 @@
+mpiifort  -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -lc_coupler -lstdc++  -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/c_coupler/src -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/include -I/opt/netCDF-intel13-without-hdf5/include -O2 -g -traceback -free -check all -heap-arrays -fp-stack-check -c coupling_ocn_model_mod.f90
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_bottom_ to: cn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_bottom_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_in_place_ to: _model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_in_place_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_status_ignore_ to: l_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_status_ignore_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_statuses_ignore_ to: mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_statuses_ignore_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_errcodes_ignore_ to: mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_errcodes_ignore_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_argvs_null_ to: odel_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_argvs_null_
+module coupling_ocn_model_mod
+^
+coupling_ocn_model_mod.f90(1): warning #5462: Global name too long, shortened from: coupling_ocn_model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_argv_null_ to: model_mod_mp_register_component_coupling_configuration_$BLK.ccpl_interface_mod_mp_mpi_argv_null_
+module coupling_ocn_model_mod
+^
+mpiifort  -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -lc_coupler -lstdc++  -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/c_coupler/src -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/include -I/opt/netCDF-intel13-without-hdf5/include -O2 -g -traceback -free -check all -heap-arrays -fp-stack-check -c gamil.f90
+mpiifort -o gamil coupling_ocn_model_mod.o gamil.o  -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -L/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib -lc_coupler -lstdc++  -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/c_coupler/src -I/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/include -L/opt/netCDF-intel13-without-hdf5/lib -lnetcdff -lnetcdf -I/opt/netCDF-intel13-without-hdf5/include -O2 -g -traceback -free -check all -heap-arrays -fp-stack-check

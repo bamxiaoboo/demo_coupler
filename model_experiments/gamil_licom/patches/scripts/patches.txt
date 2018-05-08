@@ -1,0 +1,110 @@
+diff --git a/experiment.sample b/experiment.sample
+index 2cc53ac..1f2bade 100644
+--- a/experiment.sample
++++ b/experiment.sample
+@@ -1,5 +1,3 @@
+-COMPSET=CESM1_2_1-sole
+-CASEROOT="/home/liuli/git_checkout/model_experiments/CESM_experiments/CESM2.6_test_temp"
++COMPSET=GAMIL2-GIGC
++CASEROOT="/home/liuli/git_checkout/model_experiments/GAMIL2-GIGC-test1"
+ MACH=generic_linux
+-CESM_RES=1.9x2.5_gx1v6
+-CESM_COMPSET=B_RCP2.6_CN
+diff --git a/utils/clean_system b/utils/clean_system
+index e96262d..745ed47 100755
+--- a/utils/clean_system
++++ b/utils/clean_system
+@@ -191,7 +191,7 @@ if [ "$1" ==  "all" ]; then
+         Exefile=${Exedir}/exe/${models[i]}
+         clean_model "${Exedir}" "${Exefile}"
+         if [ -x "${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh" ]; then
+-            ${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh > /dev/null 2> /dev/null
++            ${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh "${Exedir}" "${Exefile}" > /dev/null 2> /dev/null
+         fi
+         echo "Finish cleaning the model \"${models[i]}\""
+     done
+@@ -212,7 +212,7 @@ else
+             Exefile=${Exedir}/exe/${models[i]}
+             clean_model "${Exedir}" "${Exefile}"
+             if [ -x "${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh" ]; then
+-                ${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh > /dev/null 2> /dev/null
++                ${CASEROOT}/config/${models_type[i]}/${models[i]}/clean.sh "${Exedir}" "${Exefile}" > /dev/null 2> /dev/null
+             fi
+             echo "Finish cleaning the model \"${models[i]}\""
+             find=1
+diff --git a/utils/configure_system b/utils/configure_system
+index a10d7e5..d44ec3a 100755
+--- a/utils/configure_system
++++ b/utils/configure_system
+@@ -141,7 +141,6 @@ bypass_models=($BYPASS_STR)
+ IFS=$IFS_BAK
+ 
+ 
+-
+ if [ ! -e "${SCRIPTSROOT}" ]; then
+     report_logs "ERROR" "Cannot find the SCRIPTSROOT: \"${SCRIPTSROOT}\".\nPlease set the SCRIPTSROOT through source register_platform.sh or register_platform.csh under the directory scripts of the C-Coupler model platform. \nConfiguration aborts."
+     exit 1 
+@@ -1351,4 +1350,38 @@ fi
+ 
+ echo  $archive_filename >> ${CASEROOT}/config/common/reproducibility/simulation_package_history.log
+ 
++#generate env_run.xml
++case_name="$(hash_get common_param original_case_name)"
++run_type="$(hash_get common_param run_type)"
++leap_year_original="$(hash_get common_param leap_year)"
++if [ "$leap_year_original" == "false" ]; then
++    leap_year="off"
++else
++    leap_year="on"
++fi
++
++start_date="$(hash_get common_param run_start_date)"
++start_second="$(hash_get common_param run_start_second)"
++rest_freq_unit="$(hash_get common_param rest_freq_unit)"
++rest_freq_count="$(hash_get common_param rest_freq_count)"
++stop_date="$(hash_get common_param run_stop_date)"
++stop_second="$(hash_get common_param run_stop_second)"
++cat > /tmp/env_run.xml << END
++#!/bin/bash
++export CASE_NAME="$case_name"
++export RUN_TYPE="$run_type"
++export LEAP_YEAR="$leap_year"
++export START_DATE="$start_date"
++export START_SECOND="$start_second"
++export REST_FREQ_UNIT="$rest_freq_unit"
++export REST_FREQ_COUNT="$rest_freq_count"
++export STOP_DATE="$stop_date"
++export STOP_SECOND="$stop_second"
++END
++
++if [ -x "${CASEROOT}/config/lib/c_coupler/config.sh" ]; then
++    runconf "${CASEROOT}/config/lib/c_coupler/config.sh" "/tmp/env_run.xml"
++fi
++rm /tmp/env_run.xml
++
+ cleanup
+diff --git a/utils/create_newcase_system b/utils/create_newcase_system
+index 84ba5bb..0e5fc19 100755
+--- a/utils/create_newcase_system
++++ b/utils/create_newcase_system
+@@ -249,7 +249,7 @@ do
+     if [ -f ${MODEL_ROOT}/field_buf_register.cfg ]; then
+         mycopy "${MODEL_ROOT}/field_buf_register.cfg" "${MODEL_PATH}/field_buf_register.cfg" "field_buf_register.cfg of ${comp_name[i]}"  || error_exit
+     fi
+-
++    cp -r "${MODEL_ROOT}"/* "${MODEL_PATH}"/
+ done
+ 
+ for (( i = 0; i < ${#lib_name[*]}; i++ ))
+@@ -268,9 +268,9 @@ do
+     fi
+ done
+ 
+-if [ -f "${CONFIGROOT}/compset/${COMPSET}/coupler" ]; then
++if [ -d "${CONFIGROOT}/compset/${COMPSET}/coupler" ]; then
+     echo -n "  Copying running configurations of C-Coupler ... "
+-    cp -rf "${CONFIGROOT}/compset/${COMPSET}/coupler"/* "$CASEROOT/config/common/CCPL_configs"
++    cp -rf "${CONFIGROOT}/compset/${COMPSET}/coupler"/* "$CASEROOT/config/common/CCPL_configs"/
+     echo "done"
+ fi
+ 

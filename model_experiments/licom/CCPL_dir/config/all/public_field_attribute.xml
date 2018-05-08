@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<field name="SLP"  dimensions="H2D"   long_name="sea level pressure"  type="state"  default_unit="Pa" />
+<field name="CLDFRC"  dimensions="H2D"   long_name="column cloud fraction"  type="state"  default_unit="fraction" />
+<field name="TS"  dimensions="H2D"   long_name="surface temperature"  type="state"  default_unit="K" />
+<field name="CMFMC"  dimensions="V3D"   long_name="Moist convection mass flux"  type="state"  default_unit="kg m-2 s-1" />
+<field name="DQIDTMST"  dimensions="V3D"   long_name="ice tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DQLDTMST"  dimensions="V3D"   long_name="H2O tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DQVDTMST"  dimensions="V3D"   long_name="vapor tendency, mst proc"  type="state"  default_unit="kg kg-1 s-1" />
+<field name="DTRAIN"  dimensions="V3D"   long_name="detrainment flux"  type="state"  default_unit="kg m-2 s-1" />
+<field name="MOISTQ"  dimensions="V3D"   long_name="tendency in sp. C17"  type="state"  default_unit="g kg-1 day-1" />
+<field name="OPTDEP"  dimensions="V3D"   long_name="visible optical depth"  type="state"  default_unit="unitless" />
+<field name="PS"  dimensions="H2D"   long_name="sfc press at timestep"  type="state"  default_unit="Pa" />
+<field name="CLDF"  dimensions="V3D"   long_name="Cloud fraction"  type="state"  default_unit="fraction" />
+<field name="QI"  dimensions="V3D"   long_name="cloud ice mixing ratio"  type="state"  default_unit="kg kg-1" />
+<field name="QL"  dimensions="V3D"   long_name="cloud water mixing ratio"  type="state"  default_unit="kg kg-1" />
+<field name="RH"  dimensions="V3D"   long_name="relative humidity"  type="state"  default_unit="fraction" />
+<field name="SPHU"  dimensions="V3D"   long_name="specific humidity"  type="state"  default_unit="g kg-1" />
+<field name="T"  dimensions="V3D"   long_name="temperature"  type="state"  default_unit="K" />
+<field name="TAUCLI"  dimensions="V3D"   long_name="opt depth of ice clouds"  type="state"  default_unit="dimensionless" />
+<field name="TAUCLW"  dimensions="V3D"   long_name="opt depth of H2O cloud"  type="state"  default_unit="dimensionless" />
+<field name="U"  dimensions="V3D"   long_name="E/W component of wind"  type="state"  default_unit="m -s" />
+<field name="V"  dimensions="V3D"   long_name="N/S component of wind"  type="state"  default_unit="m -s" />
+<field name="EFLUX"  dimensions="H2D"   long_name="latent heat flux"  type="state"  default_unit="W m-2" />
+<field name="EVAP"  dimensions="H2D"   long_name="surface evaporation"  type="state"  default_unit="kg m-2 s-1" />
+<field name="FRLAND"  dimensions="H2D"   long_name="fraction of land"  type="state"  default_unit="fraction" />
+<field name="FROCEAN"  dimensions="H2D"   long_name="fraction of ocean"  type="state"  default_unit="fraction of ocean" />
+<field name="HFLUX"  dimensions="H2D"   long_name="sensible heat flux"  type="state"  default_unit="W m-2" />
+<field name="PARDR"  dimensions="H2D"   long_name="direct photsyn active rad"  type="state"  default_unit="W m-2" />
+<field name="PBLH"  dimensions="H2D"   long_name="PBL height"  type="state"  default_unit="m" />
+<field name="PRECCON"  dimensions="H2D"   long_name="conv precip @ ground"  type="state"  default_unit="kg m-2 s-1" />
+<field name="PARDF"  dimensions="H2D"   long_name="diffuse photsyn active rad"  type="state"  default_unit="W m-2" />
+<field name="PRECTOT"  dimensions="H2D"   long_name="total precip @ ground"  type="state"  default_unit="kg m-2 s-1" />
+<field name="PRECSNO"  dimensions="H2D"   long_name="snow precip"  type="state"  default_unit="kg m-2 s-1" />
+<field name="RADLWG"  dimensions="H2D"   long_name="net LW radiation @ ground"  type="state"  default_unit="W m-2" />
+<field name="RADSWG"  dimensions="H2D"   long_name="solar radiation @ ground"  type="state"  default_unit="W m-2" />
+<field name="TSKIN"  dimensions="H2D"   long_name="surface skin temperature"  type="state"  default_unit="K" />
+<field name="USTAR"  dimensions="H2D"   long_name="friction velocity"  type="state"  default_unit="m s-1" />
+<field name="SO2"  dimensions="V3D"   long_name="SO2 concertration" type="state"  default_unit="unitless" />

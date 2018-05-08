@@ -1,0 +1,16 @@
+diff --git a/src/CoR/remap_weight_sparse_matrix.cxx b/src/CoR/remap_weight_sparse_matrix.cxx
+index 44d572c..8a1a6c5 100644
+--- a/src/CoR/remap_weight_sparse_matrix.cxx
++++ b/src/CoR/remap_weight_sparse_matrix.cxx
+@@ -144,8 +144,10 @@ void Remap_weight_sparse_matrix::get_weight(long *index_src, long *index_dst, do
+ 
+ void Remap_weight_sparse_matrix::remap_values(double *data_values_src, double *data_values_dst)
+ {
+-    for (long i = 0; i < num_remaped_dst_cells_indexes; i ++)
++    for (long i = 0; i < num_remaped_dst_cells_indexes; i ++) {
++        EXECUTION_REPORT_LOG(REPORT_LOG, -1, true, "remaped_dst_cells_indexes %d (%d): %d", i, num_remaped_dst_cells_indexes, remaped_dst_cells_indexes[i]);
+         data_values_dst[remaped_dst_cells_indexes[i]] = 0.0;
++    }
+ 
+     for (long i = 0; i < num_weights; i ++)
+         data_values_dst[cells_indexes_dst[i]] += data_values_src[cells_indexes_src[i]] * weight_values[i];

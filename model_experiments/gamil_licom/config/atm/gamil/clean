@@ -1,0 +1,12 @@
+#!/bin/bash
+
+
+cd $EXEDIR/MPAS-Release-5.2
+if [ "$1" = "mpas" ]; then
+    make clean CORE=atmospohere
+fi
+if [ "$1" = "all" ]; then
+    make clean all
+fi
+
+

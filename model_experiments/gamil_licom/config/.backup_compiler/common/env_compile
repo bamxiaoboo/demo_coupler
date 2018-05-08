@@ -1,0 +1,12 @@
+COMPSET=gamil_licom
+MACH=generic_linux
+#CONFIGROOT=/data/home/liuli/check_out/coupler/uniform_model_platform/C-Coupler_Model_Platform/config
+#CODEROOT=/data/home/liuli/check_out/coupler/uniform_model_platform/C-Coupler_Model_Platform/models
+#DATAROOT=/data/home/liuli/check_out/coupler/uniform_model_platform/inputdata
+export LIBROOT=/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib
+export INCROOT=/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/lib/include
+export COMMON_COMPILER=/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/config/common/machine/generic_linux/common_compiler.generic_linux.cfg
+export ENSEMBLE_NUM=0
+export OS=Linux
+export GMAKE_J=8
+export SUBMITTER=mpi

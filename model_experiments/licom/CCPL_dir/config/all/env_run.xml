@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<Time_setting
+    case_name=""
+    model_name="The coupled version of MPAS and WWATCH3"
+    run_type="initial"
+    leap_year="off"
+    start_date="20150801"
+    start_second="43200"
+    rest_freq_unit="seconds"
+    rest_freq_count="1800"
+    rest_ref_case="C-Coupler testing"
+    rest_ref_date="00040401"
+    rest_ref_second="0"
+    stop_option="date"
+    stop_date="20150802"
+    stop_second="43200"
+    stop_n="3"
+/>

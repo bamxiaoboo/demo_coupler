@@ -1,0 +1,30 @@
+&compset_nml
+  exp_model               = "gamil_licom"
+  case_name               = "gamil_licom"
+  case_desc               = "gamil_licom : The run template of gamil and licom, did configuration at 20180508-091701"
+  config_time             = "20180508-091701"
+  run_type                = "initial"
+  start_date              = 20150801
+  start_second            = 43200
+  stop_date               = 20150802
+  stop_second             = 43200
+  rest_freq_unit          = "seconds"
+  rest_freq_count         = 1800
+  stop_latency_seconds    = 0
+  component_name          = "licom"
+  compset_filename        = "comp_list.cfg"
+  comp_run_data_dir       = "/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/ocn/licom/data"
+  comp_model_nml          = "licom.stdin"
+  cpl_interface_time_step = 1200
+  comp_log_filename       = "/data/home/sunchao/demo_coupler/model_experiments/gamil_licom/run/ocn/licom/run_logs/gamil_licom.licom.log.20180508-091701"
+  leap_year               = .false.
+/
+
+&orb_nml
+  iyear_AD                = 1990
+/
+&ensemble_setting_nml
+  ensemble_member_id             = -1
+  random_seed_for_perturb_roundoff_errors = -9999
+  roundoff_errors_perturbation_type = "none"
+/

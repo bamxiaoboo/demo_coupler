@@ -1,0 +1,1 @@
+/data/home/sunchao/demo_coupler/model_platform/models/demo/gamil_licom/licom/licom.059106-0591071.nc
